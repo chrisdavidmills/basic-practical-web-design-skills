@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Lesson 5: Looking sharp with CSS</title>
+  <link href='http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy|Alfa+Slab+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="style.css">  
+  <link rel="stylesheet" href="prism/prism.css">
+</head>
+<body>
+
+<hgroup>
+  <h1>Looking sharp with CSS</h1>
+  <h2>Basic practical web design Lesson 5</h2>
+</hgroup>
+
+<nav>
+  <p>Previous:<br><a href="lesson4.html">Understanding CSS</a></p>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson6.html">Introducing JavaScript</a></p>
+</nav>
+
+  <main>
+
+    <p>There are a lot of ways to make your web pages look cool using CSS, and in this part of the course I'll explain a few of the simpler ones. You are probably dying to find out how to set different cool looking fonts on your pages, drop shadows, and nice looking backgrounds for your content boxes. We'll look at some of these, and in addition look at simple layout ideas.</p>
+
+    <h2>Fonts and text</h2>
+
+    <p>To start with lets look at the CSS for controlling fonts and text. In your JSBin CSS pane, add the following CSS rules at the top:
+
+<pre><code class="language-css">html {
+  font-family: arial;
+  font-size: 10px;
+}
+
+h1 {
+  font-size: 4em;
+}
+
+h2 {
+  font-size: 3em;
+}
+
+p {
+  font-size: 4em;
+}</code></pre> 
+
+<p class="note">If you put a list in your page earlier, you'll also want to give the <code>&lt;li&gt;</code> elements a font-size; you can give them a separate rule, or just let them share the same font size as the paragraphs by replacing <code>p</code> above with <code>p,li</code>.</p>
+
+<p>When this is added, you will notice that the font changes, and the size of the different parts of the text change also. This is because we have specified a different font family for the <code>&lt;html&gt;</code> element, and this is inherited by the body and all of its contents.</p>
+
+<p>The <code>font-size</code> property controls the font size of the text inside an element. The em unit refers to the font size of the element's parent element. The global font size has been set on the <code>&lt;html&gt;</code> element as 10px, so basically in this simple case the em settings are all a multiple of 10. For example, the <code>&lt;h1&gt;</code> element's size has been set as 4em, so it will come out as 4 x 10 = 40px.</p>
+
+<h3>What fonts can we use?</h3>
+
+<p>The next thing we need to consider is that you can't just use <em>any font</em> you like anywhere you want, just by using <code>font-family</code> in your CSS. A web page making use of a font on a user's computer requires it to be available on that computer (these are the same fonts that other programs will use, like Microsoft Word for example). Just because a font is available on your computer, doesn't mean that is available on the computers of other people looking at your website.</p> 
+
+<p>There is another piece of this puzzle we are missing: <code>@font-face</code>. This is a bit of code that allows you to download font files along with web pages, so it doesn't have to be available on the user's computer: it can be downloaded along with the other web page files. Now, implementing this yourself is a bit beyond the scope of this course, so we are going to use a simple online service to do most of the work for us: <a href="http://www.google.com/fonts">Google Fonts</a>. Let's do it!</p>
+
+<ol>
+  <li>Open your project in one tab, and Google fonts in another tab</li> 
+  <li><p>In the Google Fonts page you have a list of fonts, and you can adjust the options</p>
+      <img src="images/7a.png" alt="The Google fonts website">
+  </li>
+  <li>Look through the list of fonts, and find one that you like the look of, and might to use on your project. Click its <em>Add to collection</em> button.</li>
+  <li>When you are done choosing, click the <em>Use</em> button near the bottom of the page.</li>
+  <li>Now you are given the code you need to get your font choices onto your page. First of all, you need to made the fonts available on your page, using the line of code seen in step 3 of the <em>Use</em> panel into your page. Copy this line now.</li>
+  <pre><code class="language-markup">&lt;link href='http://fonts.googleapis.com/css?family=Alegreya+Sans'
+      rel='stylesheet' type='text/css'&gt;</code></pre>
+  <li>Paste the line somewhere in between your <code>&lt;head&gt;</code> and <code>&lt;/head&gt;</code> tags.</li>
+  <li>Now take the line shown in step 4 on the Google Fonts page and put it inside your html ruleset in the CSS pane, replacing the current <code>font-family</code> line.</li>
+</ol>
+
+<p>That's about it for fonts in this course! You can find a lot more out at <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font">the MDN font page</a>, and <a href="http://www.sitepoint.com/how-to-use-cross-browser-web-fonts-part-1/">Cross browser web fonts part 1</a>.</p>
+
+<h3>Extra credit</h3>
+
+<p>Try going back to Google Fonts and choosing another font. How do you use two different fonts on a webpage? Try having one font as the base (or sitewide) font, and the other one as a decortive font just for your headings.</p>
+
+<p>It might also look nice if you center your top (<code>&lt;h1&gt;</code>) heading. This isn't done with the <code>margin: 0 auto</code> trick we saw ealrier in the course; it is done with a new property, <code>text-align: center;</code>.</p> 
+
+<p>Finally, after you've set new fonts on your page, you may want to fiddle with the font sizes you set earlier, to make them work better (different fonts have a different base size.) Try changing the numbers before the ems to see what you come up with.</p>
+
+    <h2>Backgrounds</h2>
+
+    <p>With fonts covered briefly, let's now turn our attention to setting backgrounds in CSS. We've already looked at the simplest part of this: <code>background-color</code>, which allows us to set a single colour to cover the whole of an element's background. Lets now look at a few more of the available options.</p>
+
+    <h3>Background images</h3>
+
+    <p>We've already inserted images into our pages with the <code>&lt;img&gt;</code> element; we can also insert background images in our pages using the CSS <code>background-image</code> property, which looks like this:</p>
+
+    <pre><code class="language-css">background-image: url(http://www.location/of/my/image.png);</code></pre>
+
+    <ol>
+      <li>First, copy the above CSS line, and include it inside the html ruleset we added earlier.</li>
+      <li>Let's find an image to use as a background tile for the web site background — in the same way as we did earlier, go to <a href="https://images.google.com/">Google Images</a>. Search for "background tiles" and choose a repeating pattern that you like the look of. When you've found this, grab its web address in the same was as we did before (click the image, then click <em>View image</em> > copy the web address from the address bar.)</li>
+      <li>Now you've got the web address, go back to the JSBin CSS pane and replace <code>http://www.location/of/my/image.png</code> with your image's web address.</li>
+    </ol>
+
+    <h3>Background gradients</h3>
+
+    <p>CSS can also generate background gradients for you. A CSS gradient is a custom background image generated by a function that replaces the <code>url( ... )</code> function we used earlier. There are radial gradients, but for now we'll just look at linear gradients, which are easier to understand.</p>
+
+    <ol>
+      <li>First of all, delete the <code>url()</code> value from the <code>background-image</code> declaration you just placed into your html rule.</li>
+      <li>Replace it with the following function: <code>linear-gradient(to right, red, green)</code></li>
+      <li>Try experimenting with these values:
+        <ul>
+          <li>The first value is direction the gradient is traveling. Try replacing <code>right</code> with <code>up</code>, <code>down</code>, <code>top left</code> or <code>bottom right</code>.</li>
+          <li>The second value is the colour of the gradient at its beginning. Try changing this to a different colour.</li>
+          <li>The third value is the colour of the gradient at its end. Try changing this as well.</li>
+        </ul>
+      </li>
+    </ol>
+
+   <h2>CSS layouts</h2>
+
+   <p>so far we've really just looked at changing simple things on your web page, such as colours and fonts. But CSS can do a lot more - you can use it to change the position of elements on the page, giving it completely new layouts.</p>
+
+   <p>In this case we'll just do something really simple - we'll take our two divs and make them sit side by side instead of on top of each other - this is called a <strong>two column layout</strong>.</p>
+
+   <p>To start with, we are going to float our divs to the left and right of one another. To do this, we need to apply <code>float: left;</code> to one of them, and <code>float: right;</code> to the other one; we also need to give each one a width small enough so that both boxes fit on the same line across. I changed my values to the following:</p>
+  
+   <pre><code class="language-css">.intro {
+  background-color: green;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 5px solid black;
+  float: left;
+  width: 39%;
+}
+
+.gallery {
+  background-color: red;
+  padding: 20px;
+  border: 5px solid black;
+  float: right;
+  width: 45%;
+}</code></pre>
+
+<p>Remember that the full width includes the padding and margin and border of the elements too. I deliberately made the <code>.intro</code> width 1% smaller than needed, so it would leave a gutter between the two.</p>
+    
+<img src="images/final-layout.png" alt="final website layout">
+
+    <h2>Extra credit: Drop shadows</h2>
+
+    <p>CSS provides a mechanism to put drop shadows on your text and boxes, which can create some fun effects.</p>
+
+    <li><code>text-shadow</code>: This allows you to put a funky drop shadow on the text of an element, for example an <code>&lt;h1&gt;</code> — <code>text-shadow: 2px 2px 5px black;</code>. The four items in the value are:
+      <ol>
+        <li>The horizontal offset of the shadow from the original text (how far it moves over to the right.)</li>
+        <li>The vertical offset of the shadow from the original text (how far it moves toward the bottom.)</li>
+        <li>The blur radius of the shadow. This means how blurry it is; a bigger number will give more blur, while 1px will give a solid shadow (no blur.)</li>
+        <li>The base colour of the shadow.</li>
+      </ol>
+    </li>
+    <li><code>box-shadow</code>: This allows you to put a funky drop shadow on a whole element, such as a <code>&lt;div&gt;</code> — <code>box-shadow: 2px 2px 5px black;</code>. The four items in the value are:
+      <ol>
+        <li>The horizontal offset of the shadow from the original box (how far it moves over to the right.)</li>
+        <li>The vertical offset of the shadow from the original box (how far it moves toward the bottom.)</li>
+        <li>The blur radius of the shadow. This means how blurry it is; a bigger number will give more blur, while 1px will give a solid shadow (no blur.)</li>
+        <li>The base colour of the shadow.</li>
+      </ol>
+    </li>
+
+
+  <p>Try adding some drop shadows to your web page, and see what you can come up with.</p>  
+  </main>	
+
+
+<nav>
+  <p>Previous:<br><a href="lesson4.html">Understanding CSS</a></p>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson6.html">Introducing JavaScript</a></p>
+</nav>
+
+<hr>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Share it, make it better, use it for good.</p>
+
+</body>
+  <script src="prism/prism.js"></script>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Lesson 6: Introducing JavaScript</title>
+  <link href='http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy|Alfa+Slab+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="style.css">  
+  <link rel="stylesheet" href="prism/prism.css"> 
+</head>
+<body>
+
+<hgroup>
+  <h1>Introducing JavaScript</h1>
+  <h2>Basic practical web design Lesson 6</h2>
+</hgroup>
+
+<nav>
+  <p>Previous:<br><a href="lesson5.html">Looking sharp with CSS</a></p>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson7.html">Building up some working JS</a></p>
+</nav>
+
+  <main>
+
+  <p>In this section we will start to look at JavaScript, the programming language of the web.</p>
+
+  <h2>What is JavaScript, really?</h2>
+
+<p>JavaScript is a full-fledged programming language that can be applied to HTML and used to create dynamic interactivity on websites.</p>
+
+<p>You can do pretty much anything with JavaScript, starting small with simple features such as adjusting layouts, making things happen when buttons are clicked, and image galleries — and moving up to bigger things like creating games, animated 2D and 3D graphics, full blown database-driven apps, and more.</p>
+
+<p>JavaScript itself is a fairly compact language, but it is very flexible, and developers have written a lot of tools that sit on top of the core JavaScript language to provide you with access to a huge amount of extra functionality with very little effort. These include:</p>
+<ul>
+ <li>Application Programming Interfaces (APIs) built into web browsers that allow you to do anything from dynamically create HTML and set CSS styles, to grab and manipulate a video stream from the user's web cam, or generate 3D graphics and audio samples.</li>
+ <li>3rd party APIs to allow developers to incorporate functionality in their sites from other properties, such as Twitter or Facebook.</li>
+ <li>3rd party frameworks and libraries you can apply to your HTML to allow you to rapidly build up sites and applications.</li>
+</ul>
+<h2>A "hello world" example</h2>
+
+<p>The above section sounds really exciting, and so it should — JavaScript is one of the most exciting web technologies, and when you start to get good at it your websites will enter a new dimension of power and creativity.</p>
+
+<p>HOWEVER, JavaScript is a bit more complex to get comfortable with than HTML and CSS, and you'll have to start small, and keep working at it in tiny regular steps. To start off with, we'll show you how to add some really basic JavaScript to your page, to create a "hello world!" example (<a href="http://en.wikipedia.org/wiki/%22Hello,_world!%22_program">the standard in basic programming examples</a>.)</p>
+
+
+<ol>
+ <li>First, open the JavaScript pane in JSBin.</li>
+ <li>Add the following code into the pane:</li>
+
+</ol>
+
+<pre><code class="language-js">var myHeading = document.querySelector('h1');
+myHeading.innerHTML = 'Hello world!';</code></pre>
+
+<h3>What happened?</h3>
+
+<p>So your heading text has been changed to "Hello world!" using JavaScript. We did this by first using a function called <code>document.querySelector()</code> to grab a reference to our heading, and store it in a variable called <code>myHeading</code>. This is very similar to what we did in CSS using selectors — we want to do something to an element, so we need to first select it.</p>
+
+<p>After that, we set the value of the <code>myHeading</code> variable's <code>innerHTML</code> property (which represents the content of the heading) to "Hello world!".</p>
+
+<p>This is the way that most JavaScript works — you have to manipulate a number of different <em>objects</em>, which represent different things inside the browser's runtime (the state of the webpage after it has been rendered by the browser), to make cool things happen.</p>
+
+<h2>Language basics crash course</h2>
+
+<p>Let's explain just some of the basic features of the JavaScript language, to give you some more understanding of how it all works.</p>
+
+ <p class="note"><strong>Note</strong>: Such features are common to all programming languages. If you can understand these fundamentals, you should be able to make a start in programming just about anything.</p>
+
+<h3 id="Variables">Variables</h3>
+
+<p>Variables are containers that you can store values in. You start by declaring a variable with the <code>var</code> keyword, followed by any name you want to call it:</p>
+
+<pre><code class="language-js">var myVariable;</code></pre>
+
+ <p class="note"><strong>Note</strong>: All lines in JS must end with a semi-colon, to indicate that this is where the line ends. If you don't include these, you can get unexpected results.</p>
+
+ <p class="note"><strong>Note</strong>: You can call a variable nearly anything, but there are some name restrictions (see <a href="http://www.codelifter.com/main/tips/tip_020.shtml">this article on variable naming rules</a>.)</p>
+
+ <p class="note"><strong>Note</strong>: JavaScript is case sensitive — <code>myVariable</code> is a different variable to <code>myvariable</code>. If you are getting problems in your code, check the casing!</p>
+
+<p>After declaring a variable, you can give it a value:</p>
+
+<pre><code class="language-js">myVariable = 'Bob';</code></pre>
+
+<p>You can retrieve the value by just calling the variable by name:</p>
+
+<pre><code class="language-js">myVariable;</code></pre>
+
+<p>You can do both these operations on the same line if you wish:</p>
+
+<pre><code class="language-js">var myVariable = 'Bob';</code></pre>
+
+<p>After giving a variable a value, you can later choose to change it:</p>
+
+<pre><code class="language-js">var myVariable = 'Bob';
+myVariable = 'Steve';</code></pre>
+
+<p>Note that variables have different <a href="/en-US/docs/Web/JavaScript/Data_structures">data types</a>:</p>
+
+<p>So why do we need variables? Well, variables are needed to do anything interesting in programming. If values couldn't change, then you wouldn't be able to do anything dynamic, like personalize a greeting message to the user visiting your site, or change the image displayed in an image gallery, etc.</p>
+
+<h3 id="Operators">Operators</h3>
+
+<p>An operator is basically a mathematical symbol that can act on two values (or variables) and produce a result. In the below table you can see some of the most simple operators, along with some examples to try out in the browser console.</p>
+
+<table class="standard-table">
+ <thead>
+  <tr>
+   <th scope="row">Operator</th>
+   <th scope="col">Explanation</th>
+   <th scope="col">Symbol(s)</th>
+   <th scope="col">Example</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <th scope="row">add/concatenation</th>
+   <td>Used to add two numbers together, or glue two strings together.</td>
+   <td><code>+</code></td>
+<td><pre><code class="language-js">6 + 9;
+"Hello " + "world!";</code></pre></td>
+  </tr>
+  <tr>
+   <th scope="row">subtract, multiple, divide</th>
+   <td>These do what you'd expect them to do in basic math.</td>
+   <td><code>-</code>, <code>*</code>, <code>/</code></td>
+<td><pre><code class="language-js">9 - 3;
+8 * 2; // multiply in JS is an asterisk
+9 / 3;</code></pre></td>
+  </tr>
+  <tr>
+   <th scope="row">assignment operator</th>
+   <td>You've seen this already: it assigns a value to a variable.</td>
+   <td><code>=</code></td>
+<td><pre><code class="language-js">var myVariable = 'Bob';</code></pre></td>
+  </tr>
+  <tr>
+   <th scope="row">Identity operator</th>
+   <td>Does a test to see if two values are equal to one another, and returns a <code>true</code>/<code>false</code> (boolean) result.</td>
+   <td><code>===</code></td>
+<td><pre><code class="language-js">var myVariable = 3;
+myVariable === 4;</code></pre></td>
+  </tr>
+  <tr>
+   <th scope="row">Negation, not equal</th>
+   <td>Often used alongside the Equality operator, the negation operator is the JS equivalent of a logical NOT — it turns a <code>true</code> into a <code>false</code>, etc.</td>
+   <td><code>!==</code></td>
+   <td>
+    <p>The basic expression is <code>true</code>, but the comparison returns <code>false</code> because we've negated it:</p>
+<pre><code class="language-js">var myVariable = 3;
+!myVariable === 3;</code></pre>
+    <p>Here we are testing "is <code>myVariable</code> NOT equal to 3". This returns <code>false</code>, because it IS equal to 3.</p>
+<pre><code class="language-js">var myVariable = 3;
+myVariable !== 3;</code></pre>
+   </td>
+  </tr>
+ </tbody>
+</table>
+
+<p>There are a lot more to explore, but this will do for now. See <a href="/en-US/docs/Web/JavaScript/Reference/Operators">Expressions and operators</a> for a complete list.</p>
+
+<h3>Conditionals</h3>
+
+<p>Conditionals are code structures that allow you to test whether an expression returns true or not, and then run different code depending on the result. The most common form of conditional is called <code>if ... else</code>. So for example:</p>
+
+<pre><code class="language-js">var iceCream = 'chocolate';
+if (iceCream === 'chocolate') {
+  alert('Yay, I love chocolate ice cream!');    
+} else {
+  alert('Awwww, but chocolate is my favorite...');    
+}</code></pre>
+
+<p>The expression inside the <code>if ( ... )</code> is the test — this uses the identity operator (as described above) to compare the variable <code>iceCream</code> with the string <code>chocolate</code> to see if the two are equal. If this comparison returns <code>true</code>, run the first block of code. If not, skip that code and run the second block of code after the <code>else</code> statement.</p>
+
+<h3>Functions</h3>
+
+<p>Functions are a way of encapsulating functionality that you want to reuse, so you can call that function with a single function name, and not have to write the entire code out again and again each time you use it. The browser has many built in functions (contained in the core JavaScript language), for example:</p>
+
+<pre><code class="language-js">var myVariable = document.querySelector('h1');
+ 
+alert('hello!');</code></pre>
+
+
+<p>These functions are built into the browser for you to use whenever you like.</p>
+
+<p>If you see something that looks like a variable name, but has brackets — <code>()</code> — after it, it is probably a function. Functions often take arguments — bits of data they need to do their job. These are put inside the brackets, and separated by commas if there is more than one. This is similar to HTML attributes.</p>
+
+<p>For example, the <code>alert()</code> function makes a pop-up box appear inside the browser window, but we need to give it a string as an argument to tell it what message it is supposed to write in the pop-up box.</p>
+<p>The good news is that you can define your own functions — in this next example we write a simple function that takes two numbers as arguments and multiples them together:</p>
+
+<pre><code class="language-js">function multiply(num1,num2) {
+  var result = num1 * num2;
+  return result;
+}</code></pre>
+
+<p>Try running the above function in the console pane, then try using your new function a few times, e.g.:</p>
+<pre><code class="language-js">multiply(4,7);
+multiply(20,20);
+multiply(0.5,3);</code></pre>
+
+ <p class="note"><strong>Note</strong>: The <code>return</code> statement tells the browser to return the <code>result</code> variable out of the function so it is available to use. This is necessary because variables defined inside functions are only available inside those functions. This is called variable <em>scoping</em>.</p>
+
+<h3>Events</h3>
+
+<p>To create real interactivity on a website, you have to use events — these are code structures that listen out for things happening to the browser, and then allow you to run code in response to those things happening. The most obvious example is the <code>click</code> event, which is fired by the browser when the mouse clicks on something. To demonstrate this, try entering the following into your console, then clicking on the current web page:</p>
+
+<pre><code class="language-js">document.querySelector('html').onclick = function() {
+    alert('Ouch! Stop poking me!');
+};</code></pre>
+
+<p>There are many ways to attach an event to an element; here we are selecting the HTML element and making its <code>onclick</code> handler property equal to an anonymous function (a function without a name) that contains the code we want to run when the click event occurs.</p>
+    
+  </main>	
+
+<nav>
+  <p>Previous:<br><a href="lesson5.html">Looking sharp with CSS</a></p>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson7.html">Building up some working JS</a></p>
+</nav>
+
+<hr>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Share it, make it better, use it for good.</p>
+
+</body>
+  <script src="prism/prism.js"></script>
+</html>

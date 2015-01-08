@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Lesson 7: Building up some working JS</title>
+  <link href='http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy|Alfa+Slab+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="style.css">  
+  <link rel="stylesheet" href="prism/prism.css">
+</head>
+<body>
+
+<hgroup>
+  <h1>Building up some working JS</h1>
+  <h2>Basic practical web design Lesson 7</h2>
+</hgroup>
+
+<nav>
+  <p>Previous:<br><a href="lesson6.html">Introducing JavaScript</a></p>
+  <p><a href="index.html">Main index</a></p>
+</nav>
+
+  <main>
+    <h2>Supercharging our example website</h2>
+<p>Now we've reviewed a few basics of JavaScript, let's add a couple of cool basic features to our example site to give you some first steps into what is possible.</p>
+
+<h3>Adding an image changer</h3>
+
+<p>In this section we'll add another image to our site, and add some simple JavaScript to change between the two when the image is clicked on.</p>
+<ol>
+ <li>First of all, find another image that you'd like to feature on your site. via <a href="https://images.google.com/">Google Images</a>. Save the web address of the image in a safe place for now; why not just leave it in the tab you opened Google Images in?</li>
+ <li>Go to your JavaScript pane, and enter the following JavaScript (delete anything that's already there):
+
+ <pre><code class="language-js">var myImage = document.querySelector('img');
+
+myImage.onclick = function() {
+    var mySrc = myImage.getAttribute('src');
+    if(mySrc === 'YOUR FIRST IMAGE WEB ADDRESS') {
+      myImage.setAttribute ('src','YOUR SECOND IMAGE WEB ADDRESS');
+    } else {
+      myImage.setAttribute ('src','YOUR FIRST IMAGE WEB ADDRESS');
+    }
+};</code></pre>
+
+ </li>
+ <li>Replace the obvious placeholders with your image web addresses. Now when you click the image, it should change to the other one!</li>
+</ol>
+<p>So here, we are storing a reference to our image element in the <code>myImage</code> variable. Next, we make this variable's <code>onclick</code> event handler property equal to an anonymous function. Now, every time this image element is clicked:</p>
+<ol>
+ <li>We retrieve the value of the image's <code>src</code> attribute.</li>
+ <li>We use a conditional to check whether the <code>src</code> attribute value is equal to the web address of the original image:
+  <ol>
+   <li>If it is, we change the <code>src</code> attribute value to the web address of the 2nd image, it to be loaded inside the <code>&lt;img&gt;</code> element.</li>
+   <li>If it isn't (meaning it must already have changed), we change the <code>src</code> value back to the original image web address, to flip it back to what it was originally.</li>
+  </ol>
+ </li>
+</ol>
+
+<h3>Adding a personalized welcome message</h3>
+
+<p>Next we will add another bit of code, to change the page's title to include a personalized welcome message when the user first navigates to the site. This welcome message will persist when the user leaves the site and then comes back. We will also include an option to change the user and therefore the welcome message anytime it is required.</p>
+
+<ol>
+ <li>Somewhere sensible inside the JSBin HTML pane (just before the first <code>&lt;/div&gt;</code> tag would be good), add the following line:
+<pre><code class="language-html">&lt;button&gt;Change user&lt;/button&gt;</code></pre>
+ </li>
+ <li>Add the following code at the bottom of the JavaScript pane, exactly as written — this grabs references to the new button we added and the heading, and stores them in variables:
+  <pre><code class="language-js">var myButton = document.querySelector('button');
+var myHeading = document.querySelector('h1');</code></pre>
+ </li>
+ <li>Now add the following function (again at the bottom of the JavaScript pane) to set the personalized greeting — this won't do anything yet, but we'll use it later on:
+<pre><code class="language-js">function setUserName() {
+  var myName = prompt('Please enter your name.');
+  localStorage.setItem('name', myName);
+  myHeading.innerHTML = 'Hello, ' + myName;
+}</code></pre>
+  This function contains a <code>prompt()</code> function, which asks the user to enter some data, and stores that data in a variable when the dialog <em>OK</em> button is pressed. In this case, we are asking the user to enter their name. Next, we call on an API called <code>localStorage</code>, which allows us to store data in the browser, and retrieve it later on. We use localStorage's <code>setItem()</code> function to create and store a data item called <code>'name'</code>, and make its value equal to the <code>myName</code> variable that contains the name the user entered. Finally, we set the <code>innerHTML</code> property of the heading (representing the text inside the element) to a string, plus the user's name.</li>
+ <li>Below everything else, add this <code>if ... else</code> block — we could call this the initialization code, as it sets up the app when it first loads:
+<pre><code class="language-js">if(!localStorage.getItem('name')) {
+  setUserName();
+} else {
+  var storedName = localStorage.getItem('name');
+  myHeading.innerHTML = 'Hello, ' + storedName;
+}</code></pre>
+
+  This block first uses the negation operator (logical NOT) to check whether the <code>name</code> data item exists — if it doesn't exist, the <code>setUserName()</code> function is run to create it. If it already exists (i.e. the user set it when they previously visited the site), we retrieve the stored name using the <code>getItem()</code> function and set the <code>innerHTML</code> of the heading to a string, plus the user's name: this is the same as we did inside <code>setUserName()</code>, except the name is taken from localStorage, not the prompt dialog box the user fills in.</li>
+
+ <li>Finally, add the following code below everything else. Here we put an <code>onclick</code> event handler on the button, so that when it's clicked the <code>setUserName()</code> function is run. This allows the user to set a new name whenever they want by pressing the button:
+<pre><code class="language-js">myButton.onclick = function() {
+  setUserName();
+};</code></pre>
+ </li>
+</ol>
+<p>The webpage will first ask you for your user name then give you a personalized message. You can then change the name any time you like by pressing the button. As an added bonus, because the name is stored inside localStorage, it persists after the site is closed down, so the personalized message will still be there when you open the site up again!</p>
+
+<p>See <a href="http://jsbin.com/biguyehifi">my finished page</a> for reference.</p>
+
+  </main>	
+
+<nav>
+  <p>Previous:<br><a href="lesson6.html">Introducing JavaScript</a></p>
+  <p><a href="index.html">Main index</a></p>
+</nav>
+
+<hr>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Share it, make it better, use it for good.</p>
+
+</body>
+  <script src="prism/prism.js"></script>
+</html>

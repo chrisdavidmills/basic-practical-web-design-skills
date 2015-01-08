@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Lesson 1: Introducing our tools</title>
+	<link href='http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy|Alfa+Slab+One' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="prism/prism.css">
+</head>
+<body>
+
+<main>
+
+    <hgroup>
+      <h1>Introducing our tools</h1>
+      <h2>Basic practical web design Lesson 1</h2>
+    </hgroup>
+
+<nav>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson2.html">Variables</a></p>
+</nav>
+
+<p>In this part of the course we will examine the tools we are going to use in learning to build websites.</p>
+
+<h2>JSBin fundamentals</h2>
+
+<p>In this course we'll be typing code into a web site called <a href="http://jsbin.com">JSBin</a> - follow the link now. This is a simulation of a web site, all conveniently stored in the same web page, so we can easily add different types of code and see how they will react together.</p>
+
+<p>Normally, to see the same result you'd have to have to create your own HTML, CSS, JavaScript, etc. files, and load the HTML file in the browser. But here we're not interested in the architecture of web sites. We want to explore website coding fundamentals as easily and painlessly as possible, so we're going to use this environment to cut out some of the clutter.</p>
+
+<img src="images/web-directory.jpg" alt="A typical web site directory structure, showing index.html and separate folders for style, script, etc.">
+
+<p>When you first load JSBin, you'll see two separate "panes" — <em>HTML</em> and <em>Output</em>.</p>
+
+<img src="images/js-bin.png" alt="The JSBin interface, with separate panes for HTML and Output">
+
+<p>We will want to make use of the CSS and eventually JavaScript panes, but for now what we've got will do. The HTML pane is where we type in HTML code. JSBin then renders that code in the Output pane, to show you the results of your code.</p>
+
+<p>You'll also see a panel at the top of the window with a lot of options in. This can be hidden by pressing the X in the top left corner, and reshown by pressing the little Robot icon. You don't need this for now, so hide it before continuing.</p>
+
+<p>The console pane is used for checking and debugging your code. Don't worry too much about this for now.</p>
+
+<p class="note">You'll also notice, when typing in code in the different panes, that it gives you messages to tell you what is wrong with your code. This is rather useful!</p>
+
+<p>When you create a new page in JSBin, it gives your code a unique web address that you can give to other people to check out your demo. Try my example, at <a href="http://jsbin.com/ikuber/2/edit">http://jsbin.com/ikuber/2/edit</a>. You can then click the JSBin button in the top left corner, and choose to clone the example, so you can make edits to your own copy, work together one the same page with a friend or two, and even download it as a working HTML page.</p>
+
+<p>We've just done some web coding! Let's do a few more bits of coding, to get you used to how it all works.</p>
+
+<h2>Coding basics</h2>
+
+<p>Now let's have a look at the different types of code we will use in our course, and how to work with them inside JSBin.</p>
+
+<h3>HTML</h3>
+
+<p><acronym title="Hypertext Markup Language">HTML</acronym> is a markup language that defines the structure of your website content, and the job each bit of content does (for example, is it a heading, is it a paragraph, etc.) If a website were a house, HTML would be the bricks, wood, etc. that the structure is built out of. HTML is what you put in the JSBin HTML pane.</p>
+
+<p>Essentially, HTML works in a similar way to a Microsoft Word document. When you make your text into a paragraph or insert an image in your document, you are using markup.</p>
+
+<p>HTML generally works by wrapping content in <em>tags</em>. In each case, the opening tag (for example <code>&lt;p&gt;</code>) states where the effect is starting, and the closing tag (for example <code>&lt;/p&gt;</code>) states where the effect stops. The opening tag plus the content inside it plus the closing tag is called an <em>element</em>. There's a few HTML elements that work slightly differently to this, but we'll get to those later.</p>
+
+<p>The main parts of the document are as follows:</p>
+
+<ul>
+  <li>The DOCTYPE: this is the bit at the very top that reads <code>&lt;!doctype html&gt;</code>, and always has to go at the top of your HTML documents, for various complex reasons. It is kind of like a ruleset that defines the rules the HTML document should follow.</li>
+  <li>The head: The head of the document is everything in between the <code>&lt;head&gt;</code> and <code>&lt;/head&gt;</code> tags. This is basically where all of the setup or configuration information about your web page goes, such as its author, styling information, descriptive keywords, etc.</li>
+  <li>The body: The body of the document is everything in between the <code>&lt;body&gt;</code> and <code>&lt;/body&gt;</code> tags. This is where you put everything that you want to appear on your web page.</li>
+</ul>
+
+<p>Let's try writing a little bit of HTML to get the hang of things. Try copying and pasting the following code into the HTML pane, replacing what is currently there. You can vary the text inside the tags as much as you like, but the tags have to stay the same.</p>
+
+<pre><code class="language-markup">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My food page&lt;/title&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+
+    &lt;h1&gt;My website is all about food&lt;/h1&gt;
+
+    &lt;p&gt;I &lt;strong&gt;love&lt;/strong&gt; food. It is what I look forward to
+    &lt;em&gt;every&lt;/em&gt; morning, lunchtime and evening. My favourite foods are covered in the sections below.&lt;/p&gt;
+
+    &lt;h2&gt;Cheese&lt;/h2&gt;
+
+    &lt;img src="http://venturebeat.files.wordpress.com/2010/05/
+cheese_oh_cheese.jpg" alt="a piece of cheese"&gt;
+
+    &lt;p&gt;Let's start with cheese. Cheeses are like an international culture 
+trip, with every country having its own famous varieties.&lt;/p&gt;
+
+    &lt;p&gt;For more information on cheese, go to 
+    &lt;a href="http://www.cheese.com/"&gt;Cheese.com&lt;/a&gt;&lt;/p&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<h3>CSS</h3>
+
+<p><acronym title="Cascading Stylesheets">CSS</acronym> is the main technology you can use to affect how your web pages look, so fonts, colours, spacing, animation, etc. Returning to our house analogy, CSS is like the paint, carpets, wallpaper, and other things you use to get your house looking nice.</p>
+
+<p>CSS works on the basis of rules. A rule has a selector, which specifies which element, or elements you are selecting to be styled. You then give your rule one or more declarations, each one of which states a property of the selected elements you want to change, and a value to change that property to. Let's add an example to our page.</p>
+
+<p>Open up the JSBin CSS pane, and enter the following into it:</p>
+
+<pre><code class="language-css">h1 {
+  color: blue;
+}</code></pre>
+
+<p>Now let's try adding a few more declarations to make it more fun:</p>
+
+<pre><code class="language-css">h1 {
+  color: blue;
+  font-size: 30px;
+  background-color: yellow;
+  border-radius: 10px;
+  border: 2px solid green;
+  padding: 10px;
+}</code></pre>
+
+<p class="note">Note the american spellings. They are necessary, otherwise your code won't work.</p>
+
+<p>You can change the colours and other properties, or even apply this styling to a different element or elements by changing the <code>h1</code> to something else.</p>
+
+<h3>JavaScript for interactivity</h3>
+
+<p>JavaScript is the thing you use to add interactivity and advanced features to your website. In the house analogy, JavaScript would be like the cool functional stuff in your house, like the TV, the PS4, or the Microwave oven!  JavaScript works in a similar way to CSS in some respects, although it is a lot more complex and flexible. You can select elements on the page and change things about them, but you can do so much more.</p>
+
+<p>Try putting the following in the JSBin JavaScript pane, then click the main heading with your mouse pointer and see what happens! If it doesn't work, try pressing the "Run with JS" button on the output pane and trying again.</p>
+
+<pre><code class="language-javascript">var mainTitle = document.querySelector('h1');
+
+var thePage = document.querySelector('html');
+
+mainTitle.onclick = function() {
+  var myPrompt = prompt('Enter a new background colour');
+  thePage.style.backgroundColor = myPrompt;
+};</code></pre>
+
+<h2>Choosing a project</h2>
+
+<p>At this point, I'd like you to start having a think about what you'd like to do a website about. What are you interested in? What do you find fun? It could be Football, or Minecraft, or Animals, or Fashion, or whatever you like. Think of a few paragraphs of text, and some pictures.</p>
+
+<p class="note">You can find a useful <a href="https://mozteach.makes.org/thimble/designing-for-the-web-planning">guide to planning a website</a> on Thimble. This may well be a good help when you are thinking about what you want to do a web site about. You can also read a good little quick guide to <a href="https://mozteach.makes.org/thimble/designing-for-the-web-design">Designing for the Web</a>.</p>
+
+<h2>Saving your work</h2>
+
+<p>JSBin automatically saves a copy of your work at a specific web address. The easiest way to find it is to press the "Share" button at the top of the JSBin window, then make a copy of the web address under "Output only (with live reload)". Write this down on a piece of paper and keep it safe, or give it to me to look after.</p>
+
+<nav>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson2.html">Variables</a></p>
+</nav>
+
+<hr>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Share it, make it better, use it for good.</p>
+   
+  </main>
+
+</body>
+  <script src="prism/prism.js"></script>
+</html>
