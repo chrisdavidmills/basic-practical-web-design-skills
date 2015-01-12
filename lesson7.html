@@ -23,34 +23,40 @@
     <h2>Supercharging our example website</h2>
 <p>Now we've reviewed a few basics of JavaScript, let's add a couple of cool basic features to our example site to give you some first steps into what is possible.</p>
 
+<p>Before starting this section, delete everything you've got at the moment in your JSBin JavaScript pane.</p>
+
 <h3>Adding an image changer</h3>
 
 <p>In this section we'll add another image to our site, and add some simple JavaScript to change between the two when the image is clicked on.</p>
 <ol>
- <li>First of all, find another image that you'd like to feature on your site. via <a href="https://images.google.com/">Google Images</a>. Save the web address of the image in a safe place for now; why not just leave it in the tab you opened Google Images in?</li>
+ <li>First of all, find another image that you'd like to feature on your site. via <a href="https://images.google.com/">Google Images</a>. Open it in a new tab, find another image, and save the web address of the image in a safe place for now; why not just leave it in the tab you opened Google Images in for now?</li>
+ <li>Put a class attribute on your image (or one of your images, if you have more than one.) Give it a value of <code>imgSwap</code>.</li>
  <li>Go to your JavaScript pane, and enter the following JavaScript (delete anything that's already there):
 
- <pre><code class="language-js">var myImage = document.querySelector('img');
+ <pre><code class="language-js">var myImage = document.querySelector('.imgSwap');
 
 myImage.onclick = function() {
     var mySrc = myImage.getAttribute('src');
     if(mySrc === 'YOUR FIRST IMAGE WEB ADDRESS') {
-      myImage.setAttribute ('src','YOUR SECOND IMAGE WEB ADDRESS');
+      myImage.setAttribute('src','YOUR SECOND IMAGE WEB ADDRESS');
     } else {
-      myImage.setAttribute ('src','YOUR FIRST IMAGE WEB ADDRESS');
+      myImage.setAttribute('src','YOUR FIRST IMAGE WEB ADDRESS');
     }
 };</code></pre>
 
  </li>
  <li>Replace the obvious placeholders with your image web addresses. Now when you click the image, it should change to the other one!</li>
+
+<p class="note"><strong>Note</strong>: If the example doesn't work, you might want to try a different image. Some people don't like you linking to their images!</p>
+
 </ol>
-<p>So here, we are storing a reference to our image element in the <code>myImage</code> variable. Next, we make this variable's <code>onclick</code> event handler property equal to an anonymous function. Now, every time this image element is clicked:</p>
+<p>So here, we are storing a reference to our image element in the <code>myImage</code> variable. Next, we make this variable's <code>onclick</code> event handler property equal to an anonymous function containing code that does the following every time the image is clicked.</p>
 <ol>
- <li>We retrieve the value of the image's <code>src</code> attribute.</li>
- <li>We use a conditional to check whether the <code>src</code> attribute value is equal to the web address of the original image:
+ <li>Retrieves the value of the image's <code>src</code> attribute.</li>
+ <li>Uses a conditional to check whether the <code>src</code> attribute value is equal to the web address of the original image:
   <ol>
-   <li>If it is, we change the <code>src</code> attribute value to the web address of the 2nd image, it to be loaded inside the <code>&lt;img&gt;</code> element.</li>
-   <li>If it isn't (meaning it must already have changed), we change the <code>src</code> value back to the original image web address, to flip it back to what it was originally.</li>
+   <li>If it is, changes the <code>src</code> attribute value to the web address of the 2nd image, so it is loaded inside the <code>&lt;img&gt;</code> element.</li>
+   <li>If it isn't (meaning it must already have changed), changes the <code>src</code> value back to the original image's web address, to flip it back to what it was originally.</li>
   </ol>
  </li>
 </ol>
@@ -71,18 +77,18 @@ var myHeading = document.querySelector('h1');</code></pre>
 <pre><code class="language-js">function setUserName() {
   var myName = prompt('Please enter your name.');
   localStorage.setItem('name', myName);
-  myHeading.innerHTML = 'Hello, ' + myName;
+  myHeading.innerHTML = 'Hello, ' + myName + '!';
 }</code></pre>
-  This function contains a <code>prompt()</code> function, which asks the user to enter some data, and stores that data in a variable when the dialog <em>OK</em> button is pressed. In this case, we are asking the user to enter their name. Next, we call on an API called <code>localStorage</code>, which allows us to store data in the browser, and retrieve it later on. We use localStorage's <code>setItem()</code> function to create and store a data item called <code>'name'</code>, and make its value equal to the <code>myName</code> variable that contains the name the user entered. Finally, we set the <code>innerHTML</code> property of the heading (representing the text inside the element) to a string, plus the user's name.</li>
+  This function contains a <code>prompt()</code> function, which asks the user to enter some data and stores that data in a variable when the dialog <em>OK</em> button is pressed. In this case, we are asking the user to enter their name. Next, we call on an API called <code>localStorage</code>, which allows us to store data in the browser, and retrieve it later on. We use localStorage's <code>setItem()</code> function to create and store a data item called <code>'name'</code>, and make its value equal to the <code>myName</code> variable that contains the name the user entered. Finally, we set the <code>innerHTML</code> property of the heading (representing the text inside the element) to a string containing <code>'Hello, '</code>, with the user name and an exclamation mark glued onto the end of it.</li>
  <li>Below everything else, add this <code>if ... else</code> block — we could call this the initialization code, as it sets up the app when it first loads:
 <pre><code class="language-js">if(!localStorage.getItem('name')) {
   setUserName();
 } else {
   var storedName = localStorage.getItem('name');
-  myHeading.innerHTML = 'Hello, ' + storedName;
+  myHeading.innerHTML = 'Hello, ' + storedName + '!';
 }</code></pre>
 
-  This block first uses the negation operator (logical NOT) to check whether the <code>name</code> data item exists — if it doesn't exist, the <code>setUserName()</code> function is run to create it. If it already exists (i.e. the user set it when they previously visited the site), we retrieve the stored name using the <code>getItem()</code> function and set the <code>innerHTML</code> of the heading to a string, plus the user's name: this is the same as we did inside <code>setUserName()</code>, except the name is taken from localStorage, not the prompt dialog box the user fills in.</li>
+  This block first uses the negation operator (<code>!</code> — logical NOT) to check whether the <code>name</code> data item exists — if it doesn't exist, the <code>setUserName()</code> function is run to create it. If it already exists (i.e. the user set it when they previously visited the site), we retrieve the stored name using the <code>getItem()</code> function and set the <code>innerHTML</code> of the heading the same as we did inside <code>setUserName()</code>, except the name is taken from localStorage, not the prompt dialog box the user fills in.</li>
 
  <li>Finally, add the following code below everything else. Here we put an <code>onclick</code> event handler on the button, so that when it's clicked the <code>setUserName()</code> function is run. This allows the user to set a new name whenever they want by pressing the button:
 <pre><code class="language-js">myButton.onclick = function() {
@@ -90,9 +96,9 @@ var myHeading = document.querySelector('h1');</code></pre>
 };</code></pre>
  </li>
 </ol>
-<p>The webpage will first ask you for your user name then give you a personalized message. You can then change the name any time you like by pressing the button. As an added bonus, because the name is stored inside localStorage, it persists after the site is closed down, so the personalized message will still be there when you open the site up again!</p>
+<p>The web page will first ask you for your user name then give you a personalized message. You can then change the name any time you like by pressing the button. As an added bonus, because the name is stored inside localStorage, it persists after the site is closed down, so the personalized message will still be there when you open the site up again!</p>
 
-<p>See <a href="http://jsbin.com/biguyehifi">my finished page</a> for reference.</p>
+<p>See <a href="http://jsbin.com/javihucape">my finished page</a> for reference.</p>
 
 <h2>Where next?</h2>
 

@@ -42,10 +42,10 @@ h2 {
 }
 
 p {
-  font-size: 4em;
+  font-size: 1.6em;
 }</code></pre> 
 
-<p class="note">If you put a list in your page earlier, you'll also want to give the <code>&lt;li&gt;</code> elements a font-size; you can give them a separate rule, or just let them share the same font size as the paragraphs by replacing <code>p</code> above with <code>p,li</code>.</p>
+<p class="note"><strong>Note</strong>: If you put a list in your page earlier, you'll also want to give the <code>&lt;li&gt;</code> elements a font-size; you can give them a separate rule, or just let them share the same font size as the paragraphs by replacing <code>p</code> above with <code>p,li</code>.</p>
 
 <p>When this is added, you will notice that the font changes, and the size of the different parts of the text change also. This is because we have specified a different font family for the <code>&lt;html&gt;</code> element, and this is inherited by the body and all of its contents.</p>
 
@@ -58,7 +58,7 @@ p {
 <p>There is another piece of this puzzle we are missing: <code>@font-face</code>. This is a bit of code that allows you to download font files along with web pages, so it doesn't have to be available on the user's computer: it can be downloaded along with the other web page files. Now, implementing this yourself is a bit beyond the scope of this course, so we are going to use a simple online service to do most of the work for us: <a href="http://www.google.com/fonts">Google Fonts</a>. Let's do it!</p>
 
 <ol>
-  <li>Open your project in one tab, and Google fonts in another tab</li> 
+  <li>Open your project in one tab, and Google Fonts in another tab</li> 
   <li><p>In the Google Fonts page you have a list of fonts, and you can adjust the options</p>
       <img src="images/7a.png" alt="The Google fonts website">
   </li>
@@ -67,7 +67,7 @@ p {
   <li>Now you are given the code you need to get your font choices onto your page. First of all, you need to made the fonts available on your page, using the line of code seen in step 3 of the <em>Use</em> panel into your page. Copy this line now.</li>
   <pre><code class="language-markup">&lt;link href='http://fonts.googleapis.com/css?family=Alegreya+Sans'
       rel='stylesheet' type='text/css'&gt;</code></pre>
-  <li>Paste the line somewhere in between your <code>&lt;head&gt;</code> and <code>&lt;/head&gt;</code> tags.</li>
+  <li>Paste the line somewhere in between your <code>&lt;head&gt;</code> and <code>&lt;/head&gt;</code> tags in the HTML pane.</li>
   <li>Now take the line shown in step 4 on the Google Fonts page and put it inside your html ruleset in the CSS pane, replacing the current <code>font-family</code> line.</li>
 </ol>
 
@@ -77,7 +77,7 @@ p {
 
 <p>Try going back to Google Fonts and choosing another font. How do you use two different fonts on a webpage? Try having one font as the base (or sitewide) font, and the other one as a decortive font just for your headings.</p>
 
-<p>It might also look nice if you center your top (<code>&lt;h1&gt;</code>) heading. This isn't done with the <code>margin: 0 auto</code> trick we saw ealrier in the course; it is done with a new property, <code>text-align: center;</code>.</p> 
+<p>It might also look nice if you center your top (<code>&lt;h1&gt;</code>) heading. This isn't done with the <code>margin: 0 auto</code> trick we saw earlier in the course; it is done with a new property, <code>text-align: center;</code>.</p> 
 
 <p>Finally, after you've set new fonts on your page, you may want to fiddle with the font sizes you set earlier, to make them work better (different fonts have a different base size.) Try changing the numbers before the ems to see what you come up with.</p>
 
@@ -92,7 +92,7 @@ p {
     <pre><code class="language-css">background-image: url(http://www.location/of/my/image.png);</code></pre>
 
     <ol>
-      <li>First, copy the above CSS line, and include it inside the html ruleset we added earlier.</li>
+      <li>First, copy the above CSS line, and include it inside the <code>html</code> ruleset we added earlier.</li>
       <li>Let's find an image to use as a background tile for the web site background — in the same way as we did earlier, go to <a href="https://images.google.com/">Google Images</a>. Search for "background tiles" and choose a repeating pattern that you like the look of. When you've found this, grab its web address in the same was as we did before (click the image, then click <em>View image</em> > copy the web address from the address bar.)</li>
       <li>Now you've got the web address, go back to the JSBin CSS pane and replace <code>http://www.location/of/my/image.png</code> with your image's web address.</li>
     </ol>
@@ -142,11 +142,20 @@ p {
     
 <img src="images/final-layout.png" alt="final website layout">
 
+<p class="note"><strong>Note</strong>: If you have a video in your page as well, it will probably be a different width to the image, which will break thge layout. To fix this for now, add a declaration to set the <code>&lt;iframe&gt;</code>'s <code>width</code> to the same width as your image was set to in the HTML. For example, my image was set to width 400 in my HTML, so I did this in my CSS:</p>
+
+<pre><code class="language-css">img, iframe {
+  margin: 0 auto;
+  display: block;
+  border: 5px solid black;
+  width: 300px;
+}</code></pre>
+
     <h2>Extra credit: Drop shadows</h2>
 
     <p>CSS provides a mechanism to put drop shadows on your text and boxes, which can create some fun effects.</p>
 
-    <li><code>text-shadow</code>: This allows you to put a funky drop shadow on the text of an element, for example an <code>&lt;h1&gt;</code> — <code>text-shadow: 2px 2px 5px black;</code>. The four items in the value are:
+    <li><code>text-shadow</code>: This allows you to put a funky drop shadow on the text of an element, for example an <code>&lt;h1&gt;</code>. The syntax looks like <code>text-shadow: 2px 2px 5px black;</code>. The four items in the value are:
       <ol>
         <li>The horizontal offset of the shadow from the original text (how far it moves over to the right.)</li>
         <li>The vertical offset of the shadow from the original text (how far it moves toward the bottom.)</li>
@@ -154,7 +163,7 @@ p {
         <li>The base colour of the shadow.</li>
       </ol>
     </li>
-    <li><code>box-shadow</code>: This allows you to put a funky drop shadow on a whole element, such as a <code>&lt;div&gt;</code> — <code>box-shadow: 2px 2px 5px black;</code>. The four items in the value are:
+    <li><code>box-shadow</code>: This allows you to put a funky drop shadow on a whole element, such as a <code>&lt;div&gt;</code>. The syntax looks like <code>box-shadow: 5px 5px 10px black;</code>. The four items in the value are:
       <ol>
         <li>The horizontal offset of the shadow from the original box (how far it moves over to the right.)</li>
         <li>The vertical offset of the shadow from the original box (how far it moves toward the bottom.)</li>

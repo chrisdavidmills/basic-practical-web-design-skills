@@ -22,15 +22,15 @@
 
   <main>
 
-  <p>In this section we will start to look at JavaScript, the programming language of the web.</p>
+  <p>In this section we will start to look at JavaScript, the programming language of the Web. In this section, we will be using JSBin's <em>JavaScript</em>, <em>Console</em> and <em>Output</em> panes, so make sure those are open before we continue. Through this article you should try entering the code samples into the JavaScript pane unless otherwise noted.</p>
 
   <h2>What is JavaScript, really?</h2>
 
-<p>JavaScript is a full-fledged programming language that can be applied to HTML and used to create dynamic interactivity on websites.</p>
+<p>JavaScript is a complete programming language that can be applied to HTML and used to create dynamic interactivity on websites.</p>
 
 <p>You can do pretty much anything with JavaScript, starting small with simple features such as adjusting layouts, making things happen when buttons are clicked, and image galleries — and moving up to bigger things like creating games, animated 2D and 3D graphics, full blown database-driven apps, and more.</p>
 
-<p>JavaScript itself is a fairly compact language, but it is very flexible, and developers have written a lot of tools that sit on top of the core JavaScript language to provide you with access to a huge amount of extra functionality with very little effort. These include:</p>
+<p>JavaScript itself is fairly small, but it is very flexible, and developers have written a lot of tools that sit on top of the core JavaScript language to provide you with access to a huge amount of extra functionality with very little effort. These include:</p>
 <ul>
  <li>Application Programming Interfaces (APIs) built into web browsers that allow you to do anything from dynamically create HTML and set CSS styles, to grab and manipulate a video stream from the user's web cam, or generate 3D graphics and audio samples.</li>
  <li>3rd party APIs to allow developers to incorporate functionality in their sites from other properties, such as Twitter or Facebook.</li>
@@ -56,9 +56,9 @@ myHeading.innerHTML = 'Hello world!';</code></pre>
 
 <p>So your heading text has been changed to "Hello world!" using JavaScript. We did this by first using a function called <code>document.querySelector()</code> to grab a reference to our heading, and store it in a variable called <code>myHeading</code>. This is very similar to what we did in CSS using selectors — we want to do something to an element, so we need to first select it.</p>
 
-<p>After that, we set the value of the <code>myHeading</code> variable's <code>innerHTML</code> property (which represents the content of the heading) to "Hello world!".</p>
+<p>After that, we set the value of the <code>myHeading</code> variable's <code>innerHTML</code> property (which represents the content of the heading) to "Hello world!". Again, we are working with properties — this is again similar to CSS.</p>
 
-<p>This is the way that most JavaScript works — you have to manipulate a number of different <em>objects</em>, which represent different things inside the browser's runtime (the state of the webpage after it has been rendered by the browser), to make cool things happen.</p>
+<p>This is the way that most JavaScript works — you have to manipulate a number of different <em>objects</em>, which represent different things inside the browser's runtime (the state of the web page after it has been rendered by the browser), to make cool things happen.</p>
 
 <h2>Language basics crash course</h2>
 
@@ -82,7 +82,7 @@ myHeading.innerHTML = 'Hello world!';</code></pre>
 
 <pre><code class="language-js">myVariable = 'Bob';</code></pre>
 
-<p>You can retrieve the value by just calling the variable by name:</p>
+<p>You can retrieve the value by just calling the variable by name (try typing this in the Console pane):</p>
 
 <pre><code class="language-js">myVariable;</code></pre>
 
@@ -164,13 +164,29 @@ myVariable !== 3;</code></pre>
 <p>Conditionals are code structures that allow you to test whether an expression returns true or not, and then run different code depending on the result. The most common form of conditional is called <code>if ... else</code>. So for example:</p>
 
 <pre><code class="language-js">var iceCream = 'chocolate';
-if (iceCream === 'chocolate') {
-  alert('Yay, I love chocolate ice cream!');    
+if (condition) {
+  code1    
 } else {
-  alert('Awwww, but chocolate is my favorite...');    
+  code2    
 }</code></pre>
 
-<p>The expression inside the <code>if ( ... )</code> is the test — this uses the identity operator (as described above) to compare the variable <code>iceCream</code> with the string <code>chocolate</code> to see if the two are equal. If this comparison returns <code>true</code>, run the first block of code. If not, skip that code and run the second block of code after the <code>else</code> statement.</p>
+<p>This is a simple shell of an expression. <em>condition</em> should be replaced by a condition to test. <em>code1</em> should be replaced by what happens if the condition is true; <em>code2</em> should be replaced by what happens if the condition is false.</p>
+
+<p>Replace <em>condition</em> with:</p>
+
+<pre><code class="language-js">iceCream === 'chocolate'</code></pre>
+
+<p>Replace <em>code1</em> with:</p>
+
+<pre><code class="language-js">alert('Yay, I love chocolate ice cream!');</code></pre>
+
+<p>Replace <em>code2</em> with:</p>
+
+<pre><code class="language-js">alert('Awwww, but chocolate is my favorite...');</code></pre>
+
+<p>Now run the code using <em>Run with JS</em>. What happens?</p>
+
+<p>The expression inside the <code>if ( ... )</code> is the test — this uses the identity operator (as described above) to compare the variable <code>iceCream</code> with the string <code>chocolate</code> to see if the two are equal. Because this comparison returns <code>true</code>, we run the first block of code, giving us the first alert.</p>
 
 <h3>Functions</h3>
 
@@ -179,7 +195,6 @@ if (iceCream === 'chocolate') {
 <pre><code class="language-js">var myVariable = document.querySelector('h1');
  
 alert('hello!');</code></pre>
-
 
 <p>These functions are built into the browser for you to use whenever you like.</p>
 
@@ -191,18 +206,30 @@ alert('hello!');</code></pre>
 <pre><code class="language-js">function multiply(num1,num2) {
   var result = num1 * num2;
   return result;
-}</code></pre>
+};</code></pre>
 
-<p>Try running the above function in the console pane, then try using your new function a few times, e.g.:</p>
+<p>Try putting the above function in the JavaScript pane, then try using your new function a few times, by running it in the Console pane e.g.:</p>
+
 <pre><code class="language-js">multiply(4,7);
 multiply(20,20);
 multiply(0.5,3);</code></pre>
 
  <p class="note"><strong>Note</strong>: The <code>return</code> statement tells the browser to return the <code>result</code> variable out of the function so it is available to use. This is necessary because variables defined inside functions are only available inside those functions. This is called variable <em>scoping</em>.</p>
 
+ <h4>Extra: Another function example</h4>
+
+ <p>The above function is a bit pointless, because you can write out a multiplication pretty fast. But what about a personalised greeting?</p>
+
+ <pre><code class="language-js">function greeting(name) {
+  var myGreeting = 'Hello ' + name + ', nice to meet you!';
+  return myGreeting;
+};</code></pre>
+
 <h3>Events</h3>
 
-<p>To create real interactivity on a website, you have to use events — these are code structures that listen out for things happening to the browser, and then allow you to run code in response to those things happening. The most obvious example is the <code>click</code> event, which is fired by the browser when the mouse clicks on something. To demonstrate this, try entering the following into your console, then clicking on the current web page:</p>
+<p>To create real interactivity on a website, you have to use events — these are code structures that listen out for things happening to the browser, and then allow you to run code in response to those things happening. The most obvious example is the <code>click</code> event, which is fired by the browser when the mouse clicks on something.</p>
+
+<p>To demonstrate this, try entering the following into your JavaScript pane, then clicking on the Output pane:</p>
 
 <pre><code class="language-js">document.querySelector('html').onclick = function() {
     alert('Ouch! Stop poking me!');

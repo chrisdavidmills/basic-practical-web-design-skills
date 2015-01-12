@@ -24,7 +24,7 @@
 
     <p>Hello again! I hope you've been having fun the last couple of weeks playing around with HTML. This week we are going to leave it behind and move on to looking at <acronym title="Cascading Stylesheets">CSS</acronym> instead. CSS is the language we use to style our HTML content, whether we want to change colours, make text bigger, change the size or positioning of HTML elements, or whatever else we want to do to make things look cool.</p>
 
-    <p class="note">You can find a useful reference to the most common CSS features you'll want to use: see the <a href="https://mozteach.makes.org/thimble/css-cheatsheet">CSS Cheatsheet</a>.</p>
+    <p class="note"><strong>Note</strong>: You can find a useful reference to the most common CSS features you'll want to use: see the <a href="https://mozteach.makes.org/thimble/css-cheatsheet">CSS Cheatsheet</a>.</p>
 
     <h2>CSS basic anatomy</h2>
 
@@ -44,7 +44,7 @@
      <ul>
        <li>The whole thing is called a CSS <em>ruleset</em> (although most people just say <em>rule</em>.)</li>
        <li>The <code>p</code> is the <em>selector</em>. This selects what HTML elements on the page should be styled by the CSS rule. In this case, we are telling it to select all <code>p</code> elements on the page.</li>
-       <li>The <code>color: blue</code> is called a declaration. You are declaring that you want to give a certain <em>property</em> of the HTML elements selected by the rule a certain <em>value</em>.
+       <li>The <code>color: blue;</code> is called a declaration. You are declaring that you want to give a certain <em>property</em> of the HTML elements selected by the rule a certain <em>value</em>.
          <ul>
            <li><code>color</code> is the property you are setting a new value for.</li>
            <li><code>blue</code> is the value you are giving that property.</li>
@@ -53,7 +53,7 @@
        <li>the declarations of your rule have to be wrapped in curly braces ( <code>{ ... }</code> ).</li>
      </ul>
 
-     <p class="note">Note the American spelling of "color". When web programming languages were invented, the agreement was that we would all use American spellings to avoid confusion and make things easier.</p>
+     <p class="note"><strong>Note</strong>: Notice the American spelling of "color". When web programming languages were invented, the agreement was that we would all use American spellings to avoid confusion and make things easier.</p>
 
      <p>You can add as many declarations as you want to in each CSS rule that you write. You just need to remember to put a colon (:) in between each property and its value, and separate each declaration with a semi-colon (;). Try adding a few more of these to your CSS rule:</p>
 
@@ -86,7 +86,7 @@ color: blue;
 
 <p>We'll look at a couple of different types of selector in this course. So far you have only seen <em>element</em> selectors, for example <code>p</code> and <code>h1</code>, which select all of the elements of that type on an HTML page. The other two main selectors you'll come across are called <em>class</em> and <em>id</em> selectors, which select HTML elements that have certain <code>id</code> or <code>class</code> attribute values.</p>
 
-<p class="note">Note that the difference between classes and ids is that you can have as many HTML elements as you want with the same class value, but you can only have a single element with each id value. ids are <em>unique identifiers</em>, meaning there can be only one on each HTML page.</p>
+<p class="note"><strong>Note</strong>: The difference between classes and ids is that you can have as many HTML elements as you want with the same class value, but you can only have a single element with each id value. ids are <em>unique identifiers</em>, meaning there can be only one on each HTML page.</p>
 
 <p>Let's look at an example. Say we want to give the two <code>&lt;div&gt;</code> elements on our page two different background colours. We couldn't do this with a <code>div</code> element selector, as it would select both <code>&lt;div&gt;</code> elements at once. Instead we can add classes to our divs and select those.</p>
 
@@ -123,15 +123,15 @@ background-color: red;
   <li><strong>The margin</strong>: This is the space around the border; you can set this with the <code>margin</code> property (and <code>margin-top</code>, etc.) This creates some space around the element. Let's try setting some margin on our <code>div</code>, for example <code>margin: 10px;</code></li>
 </ul>
 
-<p class="note">when you set a width on an element, that is just the width of the content. The total width the element takes up is the content width, plus the left and right margin, border and padding. For example, if we had a 200px wide div, and a margin, padding and border of 10px each, the total width would be:</p>
+<p class="note"><strong>Note</strong>: When you set a width on an element, that is just the width of the content. The total width the element takes up is the content width, plus the left and right margin, border and padding. For example, if we had a 200px wide div, and a margin, padding and border of 10px each, the total width would be:</p>
 
 <pre><code class="language-css">200px + (10 x 2) + (10 x 2) + (10 x 2) = 260px</code></pre>
 
-<p>With that out the way, let's go and add some spacing to our projects! Let's try adding some padding to our content — for example <code>padding: 20px;</code>. A little bit of space around your text makes the content sit much nicer. Add this inside the rulesets you created earlier.</p>
+<p>With that out the way, let's go and add some spacing to our projects! Let's try adding some padding to both divs — for example <code>padding: 20px;</code>. A little bit of space around your text makes the content sit much nicer. Add this inside the rulesets you created earlier.</p>
 
-<p>Now try adding a bit of margin to your divs. You could add margin to all sides — for example <code>margin: 20px;</code> — but I'd recommend after some experimentation just sticking to putting some margin on the bottom of the intro — <code>margin-bottom: 20px;</code>.</p>
+<p>Now try adding a bit of margin to your divs. You could add margin to all sides — for example <code>margin: 20px;</code> — but I'd recommend after some experimentation just sticking to putting some margin on the bottom of the first div — <code>margin-bottom: 20px;</code>.</p>
 
-<p>Finally, let's put some borders on the divs — for example <code>border: 5px solid black</code>. Here we are setting three values separately — the width of the border, the style (try <code>dotted</code>, <code>dashed</code>, or <code>double</code> instead of <code>solid</code>) and the colour. Try changing some values.</p>
+<p>Finally, let's put some borders on both divs — for example <code>border: 5px solid black</code>. Here we are setting three values separately — the width of the border, the style (try <code>dotted</code>, <code>dashed</code>, or <code>double</code> instead of <code>solid</code>) and the colour. Try changing some values.</p>
 
 <h2>Browser defaults</h2>
 
@@ -167,9 +167,9 @@ background-color: red;
 
 <h3>Extra credit</h3>
 
-<p>It might also look cool to add <code>margin: 0 auto</code> to your image, and your video if you have one. What about a border for your images/videos as well? Be warned that if you are trying to center an image, you'll also need to set it to <code>display: block</code>. A suitable rule might look slike this:</p>
+<p>It might also look cool to add <code>margin: 0 auto</code> to your image, and your video if you have one. What about a border for your images/videos as well? Be warned that if you are trying to center an image, you'll also need to set it to <code>display: block</code>. A suitable rule might look like this:</p>
 
-<pre><code class="language-css">img {
+<pre><code class="language-css">img,iframe {
   margin: 0 auto;
   display: block;
   border: 5px solid black;

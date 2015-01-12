@@ -22,9 +22,9 @@
 
   <main>
 
-  <p>This week we will look at <acronym title="Hypertext Markup Language">HTML</acronym> in more detail, the language that is used on the Web to structure all content, and give it meaning (by this we mean "is it a paragraph?", "is it an image?", etc.) To start off with, we'll look at some real basics and build a few isolated examples. Then we'll move on to our project, and add some new content.</p>
+  <p>This week we will look at <acronym title="Hypertext Markup Language">HTML</acronym> in more detail. HTML is the language that is used on the Web to structure all content, and give it meaning (by this we mean "is it a paragraph?", "is it an image?", etc.)</p>
 
-  <p class="note">You can find a useful reference to the most common HTML features you'll want to use: see the <a href="https://mozteach.makes.org/thimble/html-cheatsheet">HTML Cheatsheet</a>.</p>
+  <p class="note"><strong>Note</strong>: You can find a useful reference to the most common HTML features you'll want to use: see the <a href="https://mozteach.makes.org/thimble/html-cheatsheet">HTML Cheatsheet</a>.</p>
 
   <h2>Entering a new template into JSBin</h2>
 
@@ -43,11 +43,10 @@
       &lt;p&gt;My paragraph&lt;/p&gt;
       
       &lt;h2&gt;My subheading&lt;/h2&gt;
-      &lt;p&gt;My second paragraph, containing a &lt;a href="href="http://www.mozilla.org/""&gt;link to Mozilla&lt;/a&gt;.&lt;/p&gt;
+      &lt;p&gt;My second paragraph, containing a &lt;a href="http://www.mozilla.org/"&gt;link to Mozilla&lt;/a&gt;.&lt;/p&gt;
     &lt;/div&gt;
     &lt;div&gt;
       &lt;img src="" alt="Description of the image"&gt;
-      &lt;!-- Later on we'll try embedding a video too --&gt;
     &lt;/div&gt;
     
   &lt;/body&gt;
@@ -57,7 +56,7 @@
 
   <p>HTML is composed of tags, which wrap around bits of content that you want to do something to. This is the same principle used in programs you'll have already used, like Microsoft Word, or Apple Pages. When you select a bit of text and press the bold button to turn it bold, what you're actually doing is tagging that text with bold tags ... it is just that in those kinds of programs you don't see the code; it all happens in the background.</p>
 
-  <p class="note">The proper name for <em>tagging</em> in HTML is <em>marking up</em>. All of the content you're reading now is marked up in HTML.</p>
+  <p class="note"><strong>Note</strong>: The proper name for <em>tagging</em> in HTML is <em>marking up</em>. All of the content you're reading now is marked up in HTML.</p>
 
   <p>Let's have a look at a simple HTML example from our template above:</p>
 
@@ -87,7 +86,7 @@
     <li><span class="highlight4">The body of the document</span> is wrapped by the <code>body</code> element; this is where all your web page content goes — the stuff you want to show in the web browser. At the moment I've just put a single level 1 heading there, for example's sake.</li>
   </ol>
 
-  <p class="note">You'll notice that there are a couple of elements here that only have a single tag, rather than a opening and a closing tag. They are called <em>empty elements</em>, because they have no content inside them. You'll meet a few of these throughout the course.</p>
+  <p class="note"><strong>Note</strong>: You'll notice that there are a couple of elements here that only have a single tag, rather than a opening and a closing tag. They are called <em>empty elements</em>, because they have no content inside them. You'll meet a few of these throughout the course.</p>
 
     <h2>Getting practical</h2>
 
@@ -97,11 +96,13 @@
 
     <p>Change the page title to whatever you want: Write any text you like between the <code>&lt;title&gt;</code> and <code>&lt;/title&gt;</code> tags.</p>
 
+    <p>this title appears in the tab part of the tab your page is opened in; it is also used when you bookmark the page.</p>
+
     <h3>Headings and paragraphs</h3>
 
-    <p>Headings and paragraphs make up a lot of web content. Just as you would in Microsoft Word or another word processor, you create a document by having a single top level heading. then subsections are created using second level headings, then sub-subsections are created with third level headings, etc. In HTML this is done using heading levels <code>h1</code>, <code>h2</code> and <code>h3</code> (You can go right the way down to <code>h6</code>, but you really shouldn't be using this many levels of headings). Any content can be placed in between the headings, but for now, lets stick to paragraphs.</p>
+    <p>Headings and paragraphs make up a lot of web content. Just as you would in Microsoft Word or another word processor, you create a document by having a single top level heading, then subsections are created using second level headings, then sub-subsections are created with third level headings, etc. In HTML this is done using heading levels <code>h1</code>, <code>h2</code> and <code>h3</code> (You can go right the way down to <code>h6</code>, but you really shouldn't be using this many levels of heading). Any content can be placed in between the headings, but for now, lets stick to paragraphs.</p>
 
-    <p>In our template we have a top level heading that begins the entire content, then a paragraph, then a second level subsection, then another paragraph. Lets try adding some of our own headings and paragraphs to our projects. I'd like you to add at least an h1, an h2 and two paragraphs containing your own content, but you can add a couple more if you like. Just keep them with the first set of <code>&lt;div&gt;&lt;/div&gt;</code> tags.</p>
+    <p>In our template we have a top level heading that begins the entire content, then a paragraph, then a second level subsection, then another paragraph. Lets try adding some of our own headings and paragraphs to our projects. I'd like you to fill in the h1 and the existing h2, then write another h2 and a couple of paragraphs containing your own content. Just keep them inside the first set of <code>&lt;div&gt;&lt;/div&gt;</code> tags.</p>
 
     <h2>Further topics</h2>
 
@@ -111,7 +112,7 @@
 
     <p>HTML allows us to create lists, which is very significant. Life is full of lists, from obvious lists such as recipes and shopping lists, to less obvious lists. When you play with a toy like lego or a video game, you are making lists - "what are the next five pieces I should put on my model", or "in what order do I need to press the XBox 360 buttons to do the ultra combo?" In this section I'll introduce you to two different types of list.</p>
     
-    <p><em>Unordered lists</em> are lists where the order of the list items doesn't matter. For example, a short shopping list:</p>
+    <p><em>Unordered lists</em> are lists where the order of the list items doesn't matter. For example, a shopping list:</p>
 
     <ul>
       <li>Eggs</li>
@@ -131,9 +132,9 @@
   &lt;li&gt;Orange Juice&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
     
-<p>The opening <code>&lt;ul&gt;</code> tag marks where the list starts, the closing <code>&lt;/ul&gt;</code> tag marks where the list ends, and the list items are all wrapped in a pair of <code>&lt;li&gt; ... &lt;/li&gt;</code> tags.</p>
+<p>The opening <code>&lt;ul&gt;</code> tag marks where the list starts, the closing <code>&lt;/ul&gt;</code> tag marks where the list ends, and each list item is wrapped in a pair of <code>&lt;li&gt; ... &lt;/li&gt;</code> tags.</p>
 
-    <p><em>Ordered lists</em> are lists where the order of the items does matter. For example in a recipe, you would not successfully make the dish if you followed the instructions out of order. The ordered list is exactly the same as the unordered list, except that the container element is <code>ol</code>, not <code>ul</code>.</p>
+    <p><em>Ordered lists</em> are lists where the order of the items does matter. For example, in a recipe you would not successfully make the dish if you followed the instructions out of order. The ordered list is exactly the same as the unordered list, except that the container element is <code>ol</code>, not <code>ul</code>.</p>
 
     <pre><code class="language-markup">&lt;ol&gt;
   &lt;li&gt;Preheat the oven to 150 C / gas mark 2.&lt;/li&gt;
@@ -172,6 +173,7 @@ reference number: &lt;em&gt;3387&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;</code></pr
 <pre><code class="language-markup">&lt;p&gt;When you phone up, be sure to &lt;strong&gt;quote your 
 reference number: &lt;em&gt;3387&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;</code></pre>
 
+  <p>Let's have a go at using these now.</p>
 
   </main>	
 
